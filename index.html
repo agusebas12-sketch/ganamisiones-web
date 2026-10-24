@@ -157,7 +157,7 @@
       'auth/unauthorized-domain': 'Este dominio no está autorizado en Firebase Authentication.',  
       'auth/network-request-failed': 'No se pudo conectar. Comprueba tu conexión a Internet.'  
     };  
-    return mensajes[code] || 'No se pudo completar la operación. Revisa la configuración de Firebase e inténtalo de nuevo.';  
+        return mensajes[code] || `Error de Firebase: ${code || error?.message || 'desconocido'}`;  
   }  
   function cambiarModo(nuevoModo) {  
     modo = nuevoModo;  
