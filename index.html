@@ -1,231 +1,226 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="GanaMisiones: descubre la plataforma y crea tu cuenta cuando el acceso esté disponible.">
-  <meta name="theme-color" content="#100d1c">
-  <title>GanaMisiones | Misiones y recompensas</title>
-  <style>
-    :root{color-scheme:dark;--fondo:#100d1c;--panel:#1e1730;--morado:#9b72ff;--texto:#f8f5ff;--suave:#c6bbd9;--borde:#42345d;--verde:#9be7bd;--rojo:#ffb4b4}
-    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:system-ui,-apple-system,Arial,sans-serif;background:radial-gradient(ellipse at 50% 0%,#39205e 0%,transparent 42%),var(--fondo);color:var(--texto);line-height:1.6}a{color:inherit}.contenedor{width:min(1080px,calc(100% - 32px));margin:auto}header{border-bottom:1px solid #ffffff12;background:#100d1ccc}.barra{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:16px}.marca{display:flex;align-items:center;gap:12px;font-weight:800;font-size:21px;text-decoration:none}.logo{display:grid;place-items:center;width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,#b59aff,#7541db);color:white}.estado{padding:7px 12px;border:1px solid #9b72ff55;border-radius:999px;color:#d4c3ff;font-size:12px;white-space:nowrap}.hero{text-align:center;padding:64px 0 35px}.etiqueta{display:inline-block;color:#d4c3ff;border:1px solid var(--borde);background:#251b3b;padding:7px 13px;border-radius:999px;font-size:13px}h1{max-width:760px;margin:24px auto 18px;font-size:clamp(38px,7vw,62px);line-height:1.08;letter-spacing:-2px}.resaltado{background:linear-gradient(90deg,#c9b5ff,#8e61ff);background-clip:text;-webkit-background-clip:text;color:transparent}.hero p{max-width:630px;margin:0 auto;color:var(--suave);font-size:17px}.boton{display:inline-block;margin-top:18px;padding:12px 18px;border-radius:13px;text-decoration:none;font-weight:750;background:linear-gradient(135deg,#a88aff,#7746df);color:white;border:0;cursor:pointer}.boton.secundario{background:#2b2142;border:1px solid var(--borde)}section{padding:28px 0}.titulo-seccion{text-align:center;margin:0 0 10px;font-size:clamp(25px,4vw,34px)}.descripcion{text-align:center;color:var(--suave);max-width:650px;margin:0 auto 25px}.auth-wrap{max-width:620px;margin:0 auto}.auth-card{padding:25px;background:linear-gradient(150deg,#2b2142,#1b152b);border:1px solid var(--borde);border-radius:22px;box-shadow:0 18px 60px #0002}.tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:5px;background:#120e20;border-radius:13px;margin-bottom:20px}.tab{padding:10px;border:0;border-radius:10px;background:transparent;color:var(--suave);font:inherit;font-weight:700;cursor:pointer}.tab[aria-selected="true"]{background:#4b3477;color:white}.formulario{display:grid;gap:12px}.campo{display:grid;gap:6px}.campo label{font-size:14px;color:#e4dcf3}.campo input{width:100%;padding:13px 14px;border:1px solid #57466f;border-radius:12px;background:#120e20;color:var(--texto);font:inherit}.campo input:focus{outline:2px solid #9b72ff;outline-offset:1px}.boton.full{width:100%;margin-top:4px;font:inherit;font-weight:750}.separador{display:flex;align-items:center;gap:12px;color:var(--suave);font-size:13px;margin:16px 0}.separador:before,.separador:after{content:"";height:1px;background:#514263;flex:1}.google{width:100%;padding:12px;border-radius:12px;border:1px solid #67577d;background:#211a32;color:white;font:inherit;font-weight:700;cursor:pointer}.estado-auth{min-height:24px;margin:12px 0 0;font-size:14px;color:var(--suave);overflow-wrap:anywhere}.estado-auth.ok{color:var(--verde)}.estado-auth.error{color:var(--rojo)}.nota{font-size:12px;color:var(--suave);margin:14px 0 0}.oculto{display:none!important}.rejilla{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.tarjeta{padding:24px;background:linear-gradient(150deg,#2b2142,#1b152b);border:1px solid var(--borde);border-radius:20px}.icono{display:grid;place-items:center;width:50px;height:50px;margin-bottom:16px;border-radius:15px;background:#a080ff1c;font-size:25px}h2,h3{line-height:1.25}h3{margin:0 0 10px;font-size:19px}.tarjeta p{color:var(--suave);margin-bottom:0}.aviso{margin-top:22px;padding:17px;border:1px solid #9b72ff45;background:#8b5cf615;color:#e0d6f7;border-radius:14px;font-size:14px}.legal{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.legal .tarjeta{padding:22px}footer{margin-top:54px;padding:30px 0;border-top:1px solid #ffffff14;color:var(--suave);font-size:13px}.pie-enlaces{display:flex;flex-wrap:wrap;gap:16px;margin-bottom:15px}.pie-enlaces a{color:#d5c5ff}.cuenta-activa{border:1px solid var(--borde);border-radius:13px;padding:15px;background:#120e20}.cuenta-activa p{margin:0 0 8px;color:var(--suave);overflow-wrap:anywhere}
-    @media(max-width:700px){.hero{padding:48px 0 28px}.rejilla,.legal{grid-template-columns:1fr}.barra{min-height:68px}h1{letter-spacing:-1px}.tarjeta{padding:21px}.auth-card{padding:18px}}
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-  </style>
-</head>
-<body>
-<header>
-  <div class="contenedor barra">
-    <a class="marca" href="#inicio" aria-label="GanaMisiones, inicio">
-      <span class="logo" aria-hidden="true">✦</span><span>GanaMisiones</span>
-    </a>
-    <span class="estado">Proyecto en desarrollo</span>
-  </div>
-</header>
-<main>
-  <div class="contenedor">
-    <section class="hero" id="inicio">
-      <span class="etiqueta">MISIÓN · PARTICIPACIÓN · RECOMPENSAS</span>
-      <h1>Tus misiones.<br><span class="resaltado">Tus objetivos.</span></h1>
-      <p>Estamos preparando una plataforma donde podrás descubrir actividades y conocer cómo funcionarán las recompensas.</p>
-      <a class="boton" href="#cuenta">Acceder a mi cuenta ↓</a>
-    </section>
-    
-    <section id="cuenta">
-      <h2 class="titulo-seccion">Tu cuenta de GanaMisiones</h2>
-      <p class="descripcion">Puedes probar el acceso cuando esta integración esté publicada. Crear una cuenta no activa misiones ni genera puntos o pagos.</p>
-      <div class="auth-wrap">
-        <div class="auth-card">
-          <div id="authPanel">
-            <div class="tabs" role="tablist" aria-label="Tipo de acceso">
-              <button class="tab" id="tabEntrar" type="button" role="tab" aria-selected="true">Iniciar sesión</button>
-              <button class="tab" id="tabRegistro" type="button" role="tab" aria-selected="false">Crear cuenta</button>
-            </div>
-            <form id="authForm" class="formulario">
-              <div class="campo">
-                <label for="email">Correo electrónico</label>
-                <input id="email" type="email" autocomplete="email" placeholder="tu@correo.com" required>
-              </div>
-              <div class="campo">
-                <label for="password">Contraseña</label>
-                <input id="password" type="password" autocomplete="current-password" minlength="6" placeholder="Mínimo 6 caracteres" required>
-              </div>
-              <button id="submitAuth" class="boton full" type="submit">Iniciar sesión</button>
-            </form>
-            <div class="separador">o continúa con</div>
-            <button id="googleBtn" class="google" type="button">G · Continuar con Google</button>
-            <p id="authMessage" class="estado-auth" role="status" aria-live="polite"></p>
-            <p class="nota">Usaremos Firebase Authentication para gestionar el acceso. No introduzcas una contraseña que uses en otros servicios.</p>
-          </div>
-          <div id="userPanel" class="oculto">
-            <h3>Sesión iniciada</h3>
-            <div class="cuenta-activa">
-              <p>Has iniciado sesión con:</p>
-              <strong id="userEmail"></strong>
-            </div>
-            <button id="logoutBtn" class="boton full" type="button">Cerrar sesión</button>
-            <p id="userMessage" class="estado-auth" role="status"></p>
-          </div>
-        </div>
-      </div>
-      <div class="aviso"><strong>Importante:</strong> las misiones, los puntos y los retiros todavía están en preparación. Actualmente no se garantizan ingresos ni pagos. No pagues para acceder a esta web.</div>
-    </section>
+<!DOCTYPE html>  <html lang="es">  
+<head>  
+  <meta charset="UTF-8">  
+  <meta name="viewport" content="width=device-width, initial-scale=1">  
+  <meta name="description" content="GanaMisiones: descubre la plataforma y crea tu cuenta cuando el acceso esté disponible.">  
+  <meta name="theme-color" content="#100d1c">  
+  <title>GanaMisiones | Misiones y recompensas</title>  
+  <style>  
+    :root{color-scheme:dark;--fondo:#100d1c;--panel:#1e1730;--morado:#9b72ff;--texto:#f8f5ff;--suave:#c6bbd9;--borde:#42345d;--verde:#9be7bd;--rojo:#ffb4b4}  
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:system-ui,-apple-system,Arial,sans-serif;background:radial-gradient(ellipse at 50% 0%,#39205e 0%,transparent 42%),var(--fondo);color:var(--texto);line-height:1.6}a{color:inherit}.contenedor{width:min(1080px,calc(100% - 32px));margin:auto}header{border-bottom:1px solid #ffffff12;background:#100d1ccc}.barra{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:16px}.marca{display:flex;align-items:center;gap:12px;font-weight:800;font-size:21px;text-decoration:none}.logo{display:grid;place-items:center;width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,#b59aff,#7541db);color:white}.estado{padding:7px 12px;border:1px solid #9b72ff55;border-radius:999px;color:#d4c3ff;font-size:12px;white-space:nowrap}.hero{text-align:center;padding:64px 0 35px}.etiqueta{display:inline-block;color:#d4c3ff;border:1px solid var(--borde);background:#251b3b;padding:7px 13px;border-radius:999px;font-size:13px}h1{max-width:760px;margin:24px auto 18px;font-size:clamp(38px,7vw,62px);line-height:1.08;letter-spacing:-2px}.resaltado{background:linear-gradient(90deg,#c9b5ff,#8e61ff);background-clip:text;-webkit-background-clip:text;color:transparent}.hero p{max-width:630px;margin:0 auto;color:var(--suave);font-size:17px}.boton{display:inline-block;margin-top:18px;padding:12px 18px;border-radius:13px;text-decoration:none;font-weight:750;background:linear-gradient(135deg,#a88aff,#7746df);color:white;border:0;cursor:pointer}.boton.secundario{background:#2b2142;border:1px solid var(--borde)}section{padding:28px 0}.titulo-seccion{text-align:center;margin:0 0 10px;font-size:clamp(25px,4vw,34px)}.descripcion{text-align:center;color:var(--suave);max-width:650px;margin:0 auto 25px}.auth-wrap{max-width:620px;margin:0 auto}.auth-card{padding:25px;background:linear-gradient(150deg,#2b2142,#1b152b);border:1px solid var(--borde);border-radius:22px;box-shadow:0 18px 60px #0002}.tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:5px;background:#120e20;border-radius:13px;margin-bottom:20px}.tab{padding:10px;border:0;border-radius:10px;background:transparent;color:var(--suave);font:inherit;font-weight:700;cursor:pointer}.tab[aria-selected="true"]{background:#4b3477;color:white}.formulario{display:grid;gap:12px}.campo{display:grid;gap:6px}.campo label{font-size:14px;color:#e4dcf3}.campo input{width:100%;padding:13px 14px;border:1px solid #57466f;border-radius:12px;background:#120e20;color:var(--texto);font:inherit}.campo input:focus{outline:2px solid #9b72ff;outline-offset:1px}.boton.full{width:100%;margin-top:4px;font:inherit;font-weight:750}.separador{display:flex;align-items:center;gap:12px;color:var(--suave);font-size:13px;margin:16px 0}.separador:before,.separador:after{content:"";height:1px;background:#514263;flex:1}.google{width:100%;padding:12px;border-radius:12px;border:1px solid #67577d;background:#211a32;color:white;font:inherit;font-weight:700;cursor:pointer}.estado-auth{min-height:24px;margin:12px 0 0;font-size:14px;color:var(--suave);overflow-wrap:anywhere}.estado-auth.ok{color:var(--verde)}.estado-auth.error{color:var(--rojo)}.nota{font-size:12px;color:var(--suave);margin:14px 0 0}.oculto{display:none!important}.rejilla{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.tarjeta{padding:24px;background:linear-gradient(150deg,#2b2142,#1b152b);border:1px solid var(--borde);border-radius:20px}.icono{display:grid;place-items:center;width:50px;height:50px;margin-bottom:16px;border-radius:15px;background:#a080ff1c;font-size:25px}h2,h3{line-height:1.25}h3{margin:0 0 10px;font-size:19px}.tarjeta p{color:var(--suave);margin-bottom:0}.aviso{margin-top:22px;padding:17px;border:1px solid #9b72ff45;background:#8b5cf615;color:#e0d6f7;border-radius:14px;font-size:14px}.legal{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.legal .tarjeta{padding:22px}footer{margin-top:54px;padding:30px 0;border-top:1px solid #ffffff14;color:var(--suave);font-size:13px}.pie-enlaces{display:flex;flex-wrap:wrap;gap:16px;margin-bottom:15px}.pie-enlaces a{color:#d5c5ff}.cuenta-activa{border:1px solid var(--borde);border-radius:13px;padding:15px;background:#120e20}.cuenta-activa p{margin:0 0 8px;color:var(--suave);overflow-wrap:anywhere}  
+    @media(max-width:700px){.hero{padding:48px 0 28px}.rejilla,.legal{grid-template-columns:1fr}.barra{min-height:68px}h1{letter-spacing:-1px}.tarjeta{padding:21px}.auth-card{padding:18px}}  
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}  
+  </style>  
+</head>  
+<body>  
+<header>  
+  <div class="contenedor barra">  
+    <a class="marca" href="#inicio" aria-label="GanaMisiones, inicio">  
+      <span class="logo" aria-hidden="true">✦</span><span>GanaMisiones</span>  
+    </a>  
+    <span class="estado">Proyecto en desarrollo</span>  
+  </div>  
+</header>  
+<main>  
+  <div class="contenedor">  
+    <section class="hero" id="inicio">  
+      <span class="etiqueta">MISIÓN · PARTICIPACIÓN · RECOMPENSAS</span>  
+      <h1>Tus misiones.<br><span class="resaltado">Tus objetivos.</span></h1>  
+      <p>Estamos preparando una plataforma donde podrás descubrir actividades y conocer cómo funcionarán las recompensas.</p>  
+      <a class="boton" href="#cuenta">Acceder a mi cuenta ↓</a>  
+    </section>  <section id="cuenta">  
+  <h2 class="titulo-seccion">Tu cuenta de GanaMisiones</h2>  
+  <p class="descripcion">Puedes probar el acceso cuando esta integración esté publicada. Crear una cuenta no activa misiones ni genera puntos o pagos.</p>  
+  <div class="auth-wrap">  
+    <div class="auth-card">  
+      <div id="authPanel">  
+        <div class="tabs" role="tablist" aria-label="Tipo de acceso">  
+          <button class="tab" id="tabEntrar" type="button" role="tab" aria-selected="true">Iniciar sesión</button>  
+          <button class="tab" id="tabRegistro" type="button" role="tab" aria-selected="false">Crear cuenta</button>  
+        </div>  
+        <form id="authForm" class="formulario">  
+          <div class="campo">  
+            <label for="email">Correo electrónico</label>  
+            <input id="email" type="email" autocomplete="email" placeholder="tu@correo.com" required>  
+          </div>  
+          <div class="campo">  
+            <label for="password">Contraseña</label>  
+            <input id="password" type="password" autocomplete="current-password" minlength="6" placeholder="Mínimo 6 caracteres" required>  
+          </div>  
+          <button id="submitAuth" class="boton full" type="submit">Iniciar sesión</button>  
+        </form>  
+        <div class="separador">o continúa con</div>  
+        <button id="googleBtn" class="google" type="button">G · Continuar con Google</button>  
+        <p id="authMessage" class="estado-auth" role="status" aria-live="polite"></p>  
+        <p class="nota">Usaremos Firebase Authentication para gestionar el acceso. No introduzcas una contraseña que uses en otros servicios.</p>  
+      </div>  
+      <div id="userPanel" class="oculto">  
+        <h3>Sesión iniciada</h3>  
+        <div class="cuenta-activa">  
+          <p>Has iniciado sesión con:</p>  
+          <strong id="userEmail"></strong>  
+        </div>  
+        <button id="logoutBtn" class="boton full" type="button">Cerrar sesión</button>  
+        <p id="userMessage" class="estado-auth" role="status"></p>  
+      </div>  
+    </div>  
+  </div>  
+  <div class="aviso"><strong>Importante:</strong> las misiones, los puntos y los retiros todavía están en preparación. Actualmente no se garantizan ingresos ni pagos. No pagues para acceder a esta web.</div>  
+</section>  
 
-    <section id="misiones">
-      <h2 class="titulo-seccion">Explora las futuras misiones</h2>
-      <p class="descripcion">Estas categorías son orientativas. Las actividades estarán disponibles cuando se habiliten y se aprueben las integraciones.</p>
-      <div class="rejilla">
-        <article class="tarjeta"><div class="icono" aria-hidden="true">📄</div><h3>Encuestas</h3><p>Participa en estudios y encuestas si cumples los requisitos de cada actividad.</p></article>
-        <article class="tarjeta"><div class="icono" aria-hidden="true">🎯</div><h3>Ofertas especiales</h3><p>Descubre futuras ofertas de proveedores colaboradores y revisa sus condiciones.</p></article>
-        <article class="tarjeta"><div class="icono" aria-hidden="true">🎁</div><h3>Recompensas</h3><p>Consulta las reglas de validación y las condiciones aplicables antes de participar.</p></article>
-      </div>
-    </section>
+<section id="misiones">  
+  <h2 class="titulo-seccion">Explora las futuras misiones</h2>  
+  <p class="descripcion">Estas categorías son orientativas. Las actividades estarán disponibles cuando se habiliten y se aprueben las integraciones.</p>  
+  <div class="rejilla">  
+    <article class="tarjeta"><div class="icono" aria-hidden="true">📄</div><h3>Encuestas</h3><p>Participa en estudios y encuestas si cumples los requisitos de cada actividad.</p></article>  
+    <article class="tarjeta"><div class="icono" aria-hidden="true">🎯</div><h3>Ofertas especiales</h3><p>Descubre futuras ofertas de proveedores colaboradores y revisa sus condiciones.</p></article>  
+    <article class="tarjeta"><div class="icono" aria-hidden="true">🎁</div><h3>Recompensas</h3><p>Consulta las reglas de validación y las condiciones aplicables antes de participar.</p></article>  
+  </div>  
+</section>  
 
-    <section id="funcionamiento">
-      <h2 class="titulo-seccion">¿Cómo funcionará?</h2>
-      <p class="descripcion">Queremos que las condiciones de cada actividad sean claras antes de participar.</p>
-      <div class="rejilla">
-        <article class="tarjeta"><div class="icono" aria-hidden="true">🔍</div><h3>1. Descubre</h3><p>Consulta las actividades que estén disponibles en la plataforma.</p></article>
-        <article class="tarjeta"><div class="icono" aria-hidden="true">✓</div><h3>2. Participa</h3><p>Completa las actividades respetando sus requisitos y condiciones.</p></article>
-        <article class="tarjeta"><div class="icono" aria-hidden="true">📊</div><h3>3. Revisa</h3><p>Las recompensas dependerán de la confirmación del proveedor y de las reglas publicadas.</p></article>
-      </div>
-    </section>
+<section id="funcionamiento">  
+  <h2 class="titulo-seccion">¿Cómo funcionará?</h2>  
+  <p class="descripcion">Queremos que las condiciones de cada actividad sean claras antes de participar.</p>  
+  <div class="rejilla">  
+    <article class="tarjeta"><div class="icono" aria-hidden="true">🔍</div><h3>1. Descubre</h3><p>Consulta las actividades que estén disponibles en la plataforma.</p></article>  
+    <article class="tarjeta"><div class="icono" aria-hidden="true">✓</div><h3>2. Participa</h3><p>Completa las actividades respetando sus requisitos y condiciones.</p></article>  
+    <article class="tarjeta"><div class="icono" aria-hidden="true">📊</div><h3>3. Revisa</h3><p>Las recompensas dependerán de la confirmación del proveedor y de las reglas publicadas.</p></article>  
+  </div>  
+</section>  
 
-    <section id="informacion">
-      <h2 class="titulo-seccion">Transparencia y confianza</h2>
-      <p class="descripcion">Antes del lanzamiento publicaremos la documentación completa y los canales de soporte.</p>
-      <div class="legal">
-        <article class="tarjeta" id="privacidad"><h3>🔐 Privacidad</h3><p>La política de privacidad completa debe describir los datos tratados, las finalidades, los proveedores, los plazos de conservación y los derechos de los usuarios antes del lanzamiento.</p></article>
-        <article class="tarjeta" id="terminos"><h3>📋 Términos y condiciones</h3><p>Las condiciones definitivas explicarán la participación, la validación de actividades, las restricciones y las reglas aplicables a las recompensas y los retiros.</p></article>
-        <article class="tarjeta" id="contacto"><h3>✉️ Contacto</h3><p>Para consultas sobre GanaMisiones, escribe a <a href="mailto:agusebas12@outlook.es">agusebas12@outlook.es</a>.</p></article>
-        <article class="tarjeta"><h3>🤝 Colaboraciones</h3><p>Las integraciones con proveedores estarán sujetas a su aprobación, a sus políticas y a la implementación técnica correspondiente.</p></article>
-      </div>
-    </section>
-  </div>
-</main>
-<footer>
-  <div class="contenedor">
-    <nav class="pie-enlaces" aria-label="Enlaces informativos"><a href="#privacidad">Privacidad</a><a href="#terminos">Términos</a><a href="#contacto">Contacto</a><a href="#funcionamiento">Cómo funciona</a></nav>
-    <p>© 2026 GanaMisiones · Proyecto en desarrollo.</p>
-    <p>Esta web es informativa. Las misiones y recompensas aún no están activas.</p>
-  </div>
-</footer>
+<section id="informacion">  
+  <h2 class="titulo-seccion">Transparencia y confianza</h2>  
+  <p class="descripcion">Antes del lanzamiento publicaremos la documentación completa y los canales de soporte.</p>  
+  <div class="legal">  
+    <article class="tarjeta" id="privacidad"><h3>🔐 Privacidad</h3><p>La política de privacidad completa debe describir los datos tratados, las finalidades, los proveedores, los plazos de conservación y los derechos de los usuarios antes del lanzamiento.</p></article>  
+    <article class="tarjeta" id="terminos"><h3>📋 Términos y condiciones</h3><p>Las condiciones definitivas explicarán la participación, la validación de actividades, las restricciones y las reglas aplicables a las recompensas y los retiros.</p></article>  
+    <article class="tarjeta" id="contacto"><h3>✉️ Contacto</h3><p>Para consultas sobre GanaMisiones, escribe a <a href="mailto:agusebas12@outlook.es">agusebas12@outlook.es</a>.</p></article>  
+    <article class="tarjeta"><h3>🤝 Colaboraciones</h3><p>Las integraciones con proveedores estarán sujetas a su aprobación, a sus políticas y a la implementación técnica correspondiente.</p></article>  
+  </div>  
+</section>
 
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-  import { getAuth, GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
-
-  const firebaseConfig = {
-    apiKey: "AIzaSyBsB-F_gwdjb6Kmx5sBjlVv_BUVh47E0rc",
-    authDomain: "ganamisiones.firebaseapp.com",
-    databaseURL: "https://ganamisiones-default-rtdb.europe-west1.firebasedatabase.app",
-    projectId: "ganamisiones",
-    storageBucket: "ganamisiones.firebasestorage.app",
-    messagingSenderId: "1046076238363",
-    appId: "1:1046076238363:web:981f0e7de21bc36260e6be"
-  };
-
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
-  const googleProvider = new GoogleAuthProvider();
-  const authForm = document.getElementById('authForm');
-  const emailInput = document.getElementById('email');
-  const passwordInput = document.getElementById('password');
-  const submitAuth = document.getElementById('submitAuth');
-  const googleBtn = document.getElementById('googleBtn');
-  const authMessage = document.getElementById('authMessage');
-  const authPanel = document.getElementById('authPanel');
-  const userPanel = document.getElementById('userPanel');
-  const userEmail = document.getElementById('userEmail');
-  const userMessage = document.getElementById('userMessage');
-  const tabEntrar = document.getElementById('tabEntrar');
-  const tabRegistro = document.getElementById('tabRegistro');
-  const logoutBtn = document.getElementById('logoutBtn');
-  let modo = 'entrar';
-
-  function mostrarMensaje(elemento, texto, tipo = '') {
-    elemento.textContent = texto;
-    elemento.className = 'estado-auth' + (tipo ? ' ' + tipo : '');
-  }
-  function traducirError(error) {
-    const code = error?.code || '';
-    const mensajes = {
-      'auth/email-already-in-use': 'Ese correo ya tiene una cuenta. Prueba a iniciar sesión.',
-      'auth/invalid-email': 'El formato del correo no es válido.',
-      'auth/weak-password': 'La contraseña es demasiado débil. Usa al menos 6 caracteres.',
-      'auth/invalid-credential': 'El correo o la contraseña no son correctos.',
-      'auth/user-not-found': 'No encontramos una cuenta con ese correo.',
-      'auth/wrong-password': 'La contraseña no es correcta.',
-      'auth/popup-closed-by-user': 'Se cerró la ventana de Google antes de terminar.',
-      'auth/popup-blocked': 'El navegador bloqueó la ventana de Google. Permite las ventanas emergentes e inténtalo de nuevo.',
-      'auth/unauthorized-domain': 'Este dominio no está autorizado en Firebase Authentication.',
-      'auth/network-request-failed': 'No se pudo conectar. Comprueba tu conexión a Internet.'
-    };
-    return mensajes[code] || 'No se pudo completar la operación. Revisa la configuración de Firebase e inténtalo de nuevo.';
-  }
-  function cambiarModo(nuevoModo) {
-    modo = nuevoModo;
-    const registro = modo === 'registro';
-    tabEntrar.setAttribute('aria-selected', String(!registro));
-    tabRegistro.setAttribute('aria-selected', String(registro));
-    submitAuth.textContent = registro ? 'Crear cuenta' : 'Iniciar sesión';
-    passwordInput.autocomplete = registro ? 'new-password' : 'current-password';
-    mostrarMensaje(authMessage, '');
-  }
-  tabEntrar.addEventListener('click', () => cambiarModo('entrar'));
-  tabRegistro.addEventListener('click', () => cambiarModo('registro'));
-
-  authForm.addEventListener('submit', async (event) => {
-    event.preventDefault();
-    const email = emailInput.value.trim();
-    const password = passwordInput.value;
-    submitAuth.disabled = true;
-    mostrarMensaje(authMessage, modo === 'registro' ? 'Creando tu cuenta…' : 'Iniciando sesión…');
-    try {
-      if (modo === 'registro') await createUserWithEmailAndPassword(auth, email, password);
-      else await signInWithEmailAndPassword(auth, email, password);
-      passwordInput.value = '';
-      mostrarMensaje(authMessage, 'Acceso completado.', 'ok');
-    } catch (error) {
-      mostrarMensaje(authMessage, traducirError(error), 'error');
-    } finally {
-      submitAuth.disabled = false;
-    }
-  });
-
-  googleBtn.addEventListener('click', async () => {
-    googleBtn.disabled = true;
-    mostrarMensaje(authMessage, 'Conectando con Google…');
-    try {
-      await signInWithPopup(auth, googleProvider);
-      mostrarMensaje(authMessage, 'Acceso con Google completado.', 'ok');
-    } catch (error) {
-      mostrarMensaje(authMessage, traducirError(error), 'error');
-    } finally {
-      googleBtn.disabled = false;
-    }
-  });
-
-  logoutBtn.addEventListener('click', async () => {
-    try {
-      await signOut(auth);
-      mostrarMensaje(userMessage, 'Has cerrado sesión.', 'ok');
-    } catch (error) {
-      mostrarMensaje(userMessage, traducirError(error), 'error');
-    }
-  });
-
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      authPanel.classList.add('oculto');
-      userPanel.classList.remove('oculto');
-      userEmail.textContent = user.email || 'Cuenta de Google';
-      mostrarMensaje(userMessage, 'Tu cuenta está conectada. Las misiones y recompensas aún no están activas.', 'ok');
-    } else {
-      userPanel.classList.add('oculto');
-      authPanel.classList.remove('oculto');
-    }
-  });
-</script>
-</body>
+  </div>  
+</main>  
+<footer>  
+  <div class="contenedor">  
+    <nav class="pie-enlaces" aria-label="Enlaces informativos"><a href="#privacidad">Privacidad</a><a href="#terminos">Términos</a><a href="#contacto">Contacto</a><a href="#funcionamiento">Cómo funciona</a></nav>  
+    <p>© 2026 GanaMisiones · Proyecto en desarrollo.</p>  
+    <p>Esta web es informativa. Las misiones y recompensas aún no están activas.</p>  
+  </div>  
+</footer>  <script type="module">  
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";  
+  import { getAuth, GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";  
+  
+  const firebaseConfig = {  
+    apiKey: "AIzaSyBsB-F_gwdjb6Kmx5sBjlVv_BUVh47E0rc",  
+    authDomain: "ganamisiones.firebaseapp.com",  
+    databaseURL: "https://ganamisiones-default-rtdb.europe-west1.firebasedatabase.app",  
+    projectId: "ganamisiones",  
+    storageBucket: "ganamisiones.firebasestorage.app",  
+    messagingSenderId: "1046076238363",  
+    appId: "1:1046076238363:web:981f0e7de21bc36260e6be"  
+  };  
+  
+  const app = initializeApp(firebaseConfig);  
+  const auth = getAuth(app);  
+  const googleProvider = new GoogleAuthProvider();  
+  const authForm = document.getElementById('authForm');  
+  const emailInput = document.getElementById('email');  
+  const passwordInput = document.getElementById('password');  
+  const submitAuth = document.getElementById('submitAuth');  
+  const googleBtn = document.getElementById('googleBtn');  
+  const authMessage = document.getElementById('authMessage');  
+  const authPanel = document.getElementById('authPanel');  
+  const userPanel = document.getElementById('userPanel');  
+  const userEmail = document.getElementById('userEmail');  
+  const userMessage = document.getElementById('userMessage');  
+  const tabEntrar = document.getElementById('tabEntrar');  
+  const tabRegistro = document.getElementById('tabRegistro');  
+  const logoutBtn = document.getElementById('logoutBtn');  
+  let modo = 'entrar';  
+  
+  function mostrarMensaje(elemento, texto, tipo = '') {  
+    elemento.textContent = texto;  
+    elemento.className = 'estado-auth' + (tipo ? ' ' + tipo : '');  
+  }  
+  function traducirError(error) {  
+    const code = error?.code || '';  
+    const mensajes = {  
+      'auth/email-already-in-use': 'Ese correo ya tiene una cuenta. Prueba a iniciar sesión.',  
+      'auth/invalid-email': 'El formato del correo no es válido.',  
+      'auth/weak-password': 'La contraseña es demasiado débil. Usa al menos 6 caracteres.',  
+      'auth/invalid-credential': 'El correo o la contraseña no son correctos.',  
+      'auth/user-not-found': 'No encontramos una cuenta con ese correo.',  
+      'auth/wrong-password': 'La contraseña no es correcta.',  
+      'auth/popup-closed-by-user': 'Se cerró la ventana de Google antes de terminar.',  
+      'auth/popup-blocked': 'El navegador bloqueó la ventana de Google. Permite las ventanas emergentes e inténtalo de nuevo.',  
+      'auth/unauthorized-domain': 'Este dominio no está autorizado en Firebase Authentication.',  
+      'auth/network-request-failed': 'No se pudo conectar. Comprueba tu conexión a Internet.'  
+    };  
+    return mensajes[code] || 'No se pudo completar la operación. Revisa la configuración de Firebase e inténtalo de nuevo.';  
+  }  
+  function cambiarModo(nuevoModo) {  
+    modo = nuevoModo;  
+    const registro = modo === 'registro';  
+    tabEntrar.setAttribute('aria-selected', String(!registro));  
+    tabRegistro.setAttribute('aria-selected', String(registro));  
+    submitAuth.textContent = registro ? 'Crear cuenta' : 'Iniciar sesión';  
+    passwordInput.autocomplete = registro ? 'new-password' : 'current-password';  
+    mostrarMensaje(authMessage, '');  
+  }  
+  tabEntrar.addEventListener('click', () => cambiarModo('entrar'));  
+  tabRegistro.addEventListener('click', () => cambiarModo('registro'));  
+  
+  authForm.addEventListener('submit', async (event) => {  
+    event.preventDefault();  
+    const email = emailInput.value.trim();  
+    const password = passwordInput.value;  
+    submitAuth.disabled = true;  
+    mostrarMensaje(authMessage, modo === 'registro' ? 'Creando tu cuenta…' : 'Iniciando sesión…');  
+    try {  
+      if (modo === 'registro') await createUserWithEmailAndPassword(auth, email, password);  
+      else await signInWithEmailAndPassword(auth, email, password);  
+      passwordInput.value = '';  
+      mostrarMensaje(authMessage, 'Acceso completado.', 'ok');  
+    } catch (error) {  
+      mostrarMensaje(authMessage, traducirError(error), 'error');  
+    } finally {  
+      submitAuth.disabled = false;  
+    }  
+  });  
+  
+  googleBtn.addEventListener('click', async () => {  
+    googleBtn.disabled = true;  
+    mostrarMensaje(authMessage, 'Conectando con Google…');  
+    try {  
+      await signInWithPopup(auth, googleProvider);  
+      mostrarMensaje(authMessage, 'Acceso con Google completado.', 'ok');  
+    } catch (error) {  
+      mostrarMensaje(authMessage, traducirError(error), 'error');  
+    } finally {  
+      googleBtn.disabled = false;  
+    }  
+  });  
+  
+  logoutBtn.addEventListener('click', async () => {  
+    try {  
+      await signOut(auth);  
+      mostrarMensaje(userMessage, 'Has cerrado sesión.', 'ok');  
+    } catch (error) {  
+      mostrarMensaje(userMessage, traducirError(error), 'error');  
+    }  
+  });  
+  
+  onAuthStateChanged(auth, (user) => {  
+    if (user) {  
+      authPanel.classList.add('oculto');  
+      userPanel.classList.remove('oculto');  
+      userEmail.textContent = user.email || 'Cuenta de Google';  
+      mostrarMensaje(userMessage, 'Tu cuenta está conectada. Las misiones y recompensas aún no están activas.', 'ok');  
+    } else {  
+      userPanel.classList.add('oculto');  
+      authPanel.classList.remove('oculto');  
+    }  
+  });  
+</script>  </body>  
 </html>
